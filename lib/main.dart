@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:search_alog_proj/provider/main_provider.dart';
 import 'package:search_alog_proj/views/landing_view.dart';
 import 'package:window_manager/window_manager.dart';
 
@@ -29,14 +31,19 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Algorithm Search Project',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-        useMaterial3: true,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => MainProvider()),
+      ],
+      child: MaterialApp(
+        title: 'Algorithm Search Project',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+          useMaterial3: true,
+        ),
+        home: const LandingView(),
       ),
-      home: const LandingView(),
     );
   }
 }

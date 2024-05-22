@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 import 'package:search_alog_proj/main.dart';
+import 'package:search_alog_proj/provider/main_provider.dart';
 import 'package:search_alog_proj/views/result_view.dart';
 
 class SearchElementInputView extends StatefulWidget {
@@ -40,6 +43,13 @@ class _SearchElementInputViewState extends State<SearchElementInputView> {
                     width: width * 0.3,
                     child: CupertinoTextField(
                       controller: inputController,
+                      keyboardType: TextInputType.number,
+                      inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                      onSubmitted: (v) {
+                        if (v.isNotEmpty) {
+                          context.read<MainProvider>().setSearchElement(int.parse(v));
+                        }
+                      },
                     ),
                   ),
                 ],
@@ -48,6 +58,29 @@ class _SearchElementInputViewState extends State<SearchElementInputView> {
                 alignment: Alignment.bottomRight,
                 child: CupertinoButton.filled(
                   onPressed: () {
+                    if (inputController.text.isNotEmpty) {
+                      context.read<MainProvider>().setSearchElement(int.parse(inputController.text));
+                    }
+                    if (context.read<MainProvider>().searchElement == null) {
+                      showDialog(
+                        context: context,
+                        builder: (ctx) {
+                          return CupertinoAlertDialog(
+                            title: const Text('Error'),
+                            content: const Text('Please enter a number to search'),
+                            actions: [
+                              CupertinoDialogAction(
+                                child: const Text('OK'),
+                                onPressed: () {
+                                  Navigator.of(ctx).pop();
+                                },
+                              ),
+                            ],
+                          );
+                        },
+                      );
+                      return;
+                    }
                     Navigator.of(context).push(
                       CupertinoPageRoute(
                         builder: (ctx) {

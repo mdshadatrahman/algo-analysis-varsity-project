@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:search_alog_proj/main.dart';
+import 'package:search_alog_proj/provider/main_provider.dart';
 import 'package:search_alog_proj/utils/enums.dart';
 import 'package:search_alog_proj/views/array_input_view.dart';
 import 'package:search_alog_proj/widgets/button_with_image_on_top.dart';
@@ -26,6 +28,7 @@ class LandingView extends StatelessWidget {
                     imagePath: 'assets/linear_search.webp',
                     buttonText: 'Linear Search',
                     onPressed: () {
+                      context.read<MainProvider>().setSearchType(SearchType.linear);
                       Navigator.of(context).push(
                         CupertinoPageRoute(
                           builder: (ctx) {
@@ -40,6 +43,7 @@ class LandingView extends StatelessWidget {
                     imagePath: 'assets/binary_search.webp',
                     buttonText: 'Binary Search',
                     onPressed: () {
+                      context.read<MainProvider>().setSearchType(SearchType.binary);
                       Navigator.of(context).push(
                         CupertinoPageRoute(
                           builder: (ctx) {

@@ -4,7 +4,11 @@ import 'package:flutter/material.dart';
 class EnteredNumber extends StatelessWidget {
   const EnteredNumber({
     super.key,
+    required this.number,
+    required this.onRemove,
   });
+  final int number;
+  final VoidCallback onRemove;
 
   @override
   Widget build(BuildContext context) {
@@ -16,11 +20,11 @@ class EnteredNumber extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const Text(
-            '12',
+          Text(
+            '$number',
           ),
           GestureDetector(
-            onTap: () {},
+            onTap: onRemove,
             child: const Icon(CupertinoIcons.xmark, color: Colors.red),
           ),
         ],
