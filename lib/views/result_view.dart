@@ -15,6 +15,7 @@ class ResultView extends StatelessWidget {
           icon: const Icon(CupertinoIcons.home),
           onPressed: () {
             Navigator.of(context).popUntil((route) => route.isFirst);
+            Provider.of<MainProvider>(context, listen: false).cleanState();
           },
         ),
       ),
@@ -25,7 +26,7 @@ class ResultView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Algorithm Type: ${value.searchType!.name.toString().toTitleCase} search',
+                  'Algorithm Type: ${value.searchType?.name.toString().toTitleCase} search',
                   style: Theme.of(context).textTheme.headlineMedium,
                 ),
                 Text(

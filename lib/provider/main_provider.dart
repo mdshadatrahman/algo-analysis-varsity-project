@@ -5,6 +5,14 @@ import 'package:search_alog_proj/models/search_result_model.dart';
 import 'package:search_alog_proj/utils/enums.dart';
 
 class MainProvider extends ChangeNotifier {
+  void cleanState() {
+    _searchType = null;
+    clearNumbers();
+    _searchElement = null;
+    _searchResult = null;
+    notifyListeners();
+  }
+
   SearchType? _searchType;
   SearchType? get searchType => _searchType;
   void setSearchType(SearchType searchType) {
