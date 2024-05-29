@@ -1,13 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:search_alog_proj/gen/assets.gen.dart';
+import 'package:provider/provider.dart';
 import 'package:search_alog_proj/main.dart';
-import 'package:search_alog_proj/views/searching_alog_view.dart';
-import 'package:search_alog_proj/views/sorting_alog_view.dart';
+import 'package:search_alog_proj/provider/main_provider.dart';
+import 'package:search_alog_proj/utils/enums.dart';
+import 'package:search_alog_proj/views/array_input_view.dart';
 import 'package:search_alog_proj/widgets/button_with_image_on_top.dart';
 
-class LandingView extends StatelessWidget {
-  const LandingView({super.key});
+class SortingAlogView extends StatelessWidget {
+  const SortingAlogView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,14 +25,14 @@ class LandingView extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   ButtonWithImageOnTop(
-                    imagePath: Assets.searching.path,
-                    buttonText: 'Searching Algorithms',
+                    imagePath: 'assets/linear_search.webp',
+                    buttonText: 'Linear Search',
                     onPressed: () {
-                      // context.read<MainProvider>().setSearchType(SearchType.linear);
+                      context.read<MainProvider>().setSearchType(SearchType.linear);
                       Navigator.of(context).push(
                         CupertinoPageRoute(
                           builder: (ctx) {
-                            return const SearchingAlogView();
+                            return const ArrayInputView(searchType: SearchType.linear);
                           },
                         ),
                       );
@@ -39,14 +40,14 @@ class LandingView extends StatelessWidget {
                   ),
                   const SizedBox(width: 10),
                   ButtonWithImageOnTop(
-                    imagePath: Assets.sorting.path,
-                    buttonText: 'Sorting Algorithms',
+                    imagePath: 'assets/binary_search.webp',
+                    buttonText: 'Binary Search',
                     onPressed: () {
-                      // context.read<MainProvider>().setSearchType(SearchType.binary);
+                      context.read<MainProvider>().setSearchType(SearchType.binary);
                       Navigator.of(context).push(
                         CupertinoPageRoute(
                           builder: (ctx) {
-                            return const SortingAlogView();
+                            return const ArrayInputView(searchType: SearchType.binary);
                           },
                         ),
                       );
