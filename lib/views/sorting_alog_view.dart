@@ -64,22 +64,46 @@ class SortingAlogView extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 10),
-              ButtonWithImageOnTop(
-                imagePath: Assets.selectionSort.path,
-                buttonText: 'Selection Sort',
-                onPressed: () {
-                  context.read<SortProvider>().sortType = SortType.selection;
-                  Navigator.of(context).push(
-                    CupertinoPageRoute(
-                      builder: (ctx) {
-                        return const ArrayInputView(
-                          title: 'Selection Sort',
-                          algorithmType: AlgorithmType.sort,
-                        );
-                      },
-                    ),
-                  );
-                },
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  ButtonWithImageOnTop(
+                    imagePath: Assets.selectionSort.path,
+                    buttonText: 'Selection Sort',
+                    onPressed: () {
+                      context.read<SortProvider>().sortType = SortType.selection;
+                      Navigator.of(context).push(
+                        CupertinoPageRoute(
+                          builder: (ctx) {
+                            return const ArrayInputView(
+                              title: 'Selection Sort',
+                              algorithmType: AlgorithmType.sort,
+                            );
+                          },
+                        ),
+                      );
+                    },
+                  ),
+                  const SizedBox(width: 10),
+                  ButtonWithImageOnTop(
+                    imagePath: Assets.quickSort.path,
+                    buttonText: 'Quick Sort',
+                    onPressed: () {
+                      context.read<SortProvider>().sortType = SortType.quick;
+                      Navigator.of(context).push(
+                        CupertinoPageRoute(
+                          builder: (ctx) {
+                            return const ArrayInputView(
+                              title: 'Quick Sort',
+                              algorithmType: AlgorithmType.sort,
+                            );
+                          },
+                        ),
+                      );
+                    },
+                  ),
+                ],
               ),
             ],
           ),

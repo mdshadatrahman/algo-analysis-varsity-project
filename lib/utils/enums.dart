@@ -12,6 +12,7 @@ enum SortType {
   bubble,
   insertion,
   selection,
+  quick,
 }
 
 enum OrderType {
