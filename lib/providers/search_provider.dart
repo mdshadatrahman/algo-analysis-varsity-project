@@ -4,7 +4,7 @@ import 'package:search_alog_proj/functions/linear_search_algo.dart';
 import 'package:search_alog_proj/models/search_result_model.dart';
 import 'package:search_alog_proj/utils/enums.dart';
 
-class MainProvider extends ChangeNotifier {
+class SearchProvider extends ChangeNotifier {
   void cleanState() {
     _searchType = null;
     clearNumbers();

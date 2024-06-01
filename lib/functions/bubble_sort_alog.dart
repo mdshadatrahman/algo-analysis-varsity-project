@@ -21,5 +21,5 @@ SortedResultModel bubbleSort({required List<int> numbers, required bool isAscend
       }
     }
   }
-  return SortedResultModel(sortedList: sortedList);
+  return SortedResultModel(sortedList: sortedList, name: 'Bubble Sort');
 }

@@ -21,5 +21,5 @@ SortedResultModel selectionSort({required List<int> numbers, required bool isAsc
     sortedList[minIndex] = sortedList[i];
     sortedList[i] = temp;
   }
-  return SortedResultModel(sortedList: sortedList);
+  return SortedResultModel(sortedList: sortedList, name: 'Selection Sort');
 }

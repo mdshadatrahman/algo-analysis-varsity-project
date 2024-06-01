@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:search_alog_proj/provider/main_provider.dart';
+import 'package:search_alog_proj/providers/search_provider.dart';
+import 'package:search_alog_proj/providers/sort_provider.dart';
 import 'package:search_alog_proj/views/landing_view.dart';
 import 'package:window_manager/window_manager.dart';
 
@@ -33,7 +34,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => MainProvider()),
+        ChangeNotifierProvider(create: (_) => SearchProvider()),
+        ChangeNotifierProvider(create: (_) => SortProvider()),
       ],
       child: MaterialApp(
         title: 'Algorithm Search Project',

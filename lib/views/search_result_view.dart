@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:search_alog_proj/provider/main_provider.dart';
+import 'package:search_alog_proj/providers/search_provider.dart';
 
-class ResultView extends StatelessWidget {
-  const ResultView({super.key});
+class SearchResultView extends StatelessWidget {
+  const SearchResultView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,12 +15,12 @@ class ResultView extends StatelessWidget {
           icon: const Icon(CupertinoIcons.home),
           onPressed: () {
             Navigator.of(context).popUntil((route) => route.isFirst);
-            Provider.of<MainProvider>(context, listen: false).cleanState();
+            Provider.of<SearchProvider>(context, listen: false).cleanState();
           },
         ),
       ),
       body: Center(
-        child: Consumer<MainProvider>(
+        child: Consumer<SearchProvider>(
           builder: (context, value, child) {
             return Column(
               mainAxisAlignment: MainAxisAlignment.center,

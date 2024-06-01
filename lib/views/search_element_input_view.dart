@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:search_alog_proj/main.dart';
-import 'package:search_alog_proj/provider/main_provider.dart';
-import 'package:search_alog_proj/views/result_view.dart';
+import 'package:search_alog_proj/providers/search_provider.dart';
+import 'package:search_alog_proj/views/search_result_view.dart';
 
 class SearchElementInputView extends StatefulWidget {
   const SearchElementInputView({super.key});
@@ -47,7 +47,7 @@ class _SearchElementInputViewState extends State<SearchElementInputView> {
                       inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                       onSubmitted: (v) {
                         if (v.isNotEmpty) {
-                          context.read<MainProvider>().setSearchElement(int.parse(v));
+                          context.read<SearchProvider>().setSearchElement(int.parse(v));
                         }
                       },
                     ),
@@ -59,9 +59,9 @@ class _SearchElementInputViewState extends State<SearchElementInputView> {
                 child: CupertinoButton.filled(
                   onPressed: () {
                     if (inputController.text.isNotEmpty) {
-                      context.read<MainProvider>().setSearchElement(int.parse(inputController.text));
+                      context.read<SearchProvider>().setSearchElement(int.parse(inputController.text));
                     }
-                    if (context.read<MainProvider>().searchElement == null) {
+                    if (context.read<SearchProvider>().searchElement == null) {
                       showDialog(
                         context: context,
                         builder: (ctx) {
@@ -84,7 +84,7 @@ class _SearchElementInputViewState extends State<SearchElementInputView> {
                     Navigator.of(context).push(
                       CupertinoPageRoute(
                         builder: (ctx) {
-                          return const ResultView();
+                          return const SearchResultView();
                         },
                       ),
                     );

@@ -14,5 +14,5 @@ SortedResultModel insertionSort({required List<int> numbers, required bool isAsc
     }
     sortedList[j + 1] = key;
   }
-  return SortedResultModel(sortedList: sortedList);
+  return SortedResultModel(sortedList: sortedList, name: 'Insertion Sort');
 }

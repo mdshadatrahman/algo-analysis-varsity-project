@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:search_alog_proj/gen/assets.gen.dart';
 import 'package:search_alog_proj/main.dart';
-import 'package:search_alog_proj/provider/main_provider.dart';
+import 'package:search_alog_proj/providers/sort_provider.dart';
 import 'package:search_alog_proj/utils/enums.dart';
 import 'package:search_alog_proj/views/array_input_view.dart';
 import 'package:search_alog_proj/widgets/button_with_image_on_top.dart';
@@ -13,6 +14,7 @@ class SortingAlogView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: const CupertinoNavigationBar(middle: Text('Sorting Algorithms')),
       body: SizedBox(
         height: height,
         width: width,
@@ -25,14 +27,17 @@ class SortingAlogView extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   ButtonWithImageOnTop(
-                    imagePath: 'assets/linear_search.webp',
-                    buttonText: 'Linear Search',
+                    imagePath: Assets.bubbleSort.path,
+                    buttonText: 'Bubble Sort',
                     onPressed: () {
-                      context.read<MainProvider>().setSearchType(SearchType.linear);
+                      context.read<SortProvider>().sortType = SortType.bubble;
                       Navigator.of(context).push(
                         CupertinoPageRoute(
                           builder: (ctx) {
-                            return const ArrayInputView(searchType: SearchType.linear);
+                            return const ArrayInputView(
+                              title: 'Bubble Sort',
+                              algorithmType: AlgorithmType.sort,
+                            );
                           },
                         ),
                       );
@@ -40,20 +45,41 @@ class SortingAlogView extends StatelessWidget {
                   ),
                   const SizedBox(width: 10),
                   ButtonWithImageOnTop(
-                    imagePath: 'assets/binary_search.webp',
-                    buttonText: 'Binary Search',
+                    imagePath: Assets.insertionSort.path,
+                    buttonText: 'Insertion Sort',
                     onPressed: () {
-                      context.read<MainProvider>().setSearchType(SearchType.binary);
+                      context.read<SortProvider>().sortType = SortType.insertion;
                       Navigator.of(context).push(
                         CupertinoPageRoute(
                           builder: (ctx) {
-                            return const ArrayInputView(searchType: SearchType.binary);
+                            return const ArrayInputView(
+                              title: 'Insertion Sort',
+                              algorithmType: AlgorithmType.sort,
+                            );
                           },
                         ),
                       );
                     },
                   ),
                 ],
+              ),
+              const SizedBox(height: 10),
+              ButtonWithImageOnTop(
+                imagePath: Assets.selectionSort.path,
+                buttonText: 'Selection Sort',
+                onPressed: () {
+                  context.read<SortProvider>().sortType = SortType.selection;
+                  Navigator.of(context).push(
+                    CupertinoPageRoute(
+                      builder: (ctx) {
+                        return const ArrayInputView(
+                          title: 'Selection Sort',
+                          algorithmType: AlgorithmType.sort,
+                        );
+                      },
+                    ),
+                  );
+                },
               ),
             ],
           ),

@@ -13,19 +13,29 @@ class EnteredNumber extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(2),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       decoration: BoxDecoration(
-        border: Border.all(color: Colors.grey),
+        borderRadius: BorderRadius.circular(10),
+        border: Border.all(color: Colors.black, width: 2),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
             '$number',
+            style: const TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+            ),
           ),
+          const SizedBox(width: 6),
           GestureDetector(
             onTap: onRemove,
-            child: const Icon(CupertinoIcons.xmark, color: Colors.red),
+            child: const Icon(
+              CupertinoIcons.xmark,
+              color: Colors.black54,
+              size: 20,
+            ),
           ),
         ],
       ),
