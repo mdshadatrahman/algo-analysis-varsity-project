@@ -105,6 +105,30 @@ class SortingAlogView extends StatelessWidget {
                   ),
                 ],
               ),
+              const SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  ButtonWithImageOnTop(
+                    imagePath: Assets.mergeSort.path,
+                    buttonText: 'Merge Sort',
+                    onPressed: () {
+                      context.read<SortProvider>().sortType = SortType.merge;
+                      Navigator.of(context).push(
+                        CupertinoPageRoute(
+                          builder: (ctx) {
+                            return const ArrayInputView(
+                              title: 'Merge Sort',
+                              algorithmType: AlgorithmType.sort,
+                            );
+                          },
+                        ),
+                      );
+                    },
+                  ),
+                ],
+              ),
             ],
           ),
         ),

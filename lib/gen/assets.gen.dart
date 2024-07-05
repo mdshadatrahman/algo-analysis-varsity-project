@@ -20,6 +20,8 @@ class Assets {
       AssetGenImage('assets/insertion_sort.webp');
   static const AssetGenImage linearSearch =
       AssetGenImage('assets/linear_search.webp');
+  static const AssetGenImage mergeSort =
+      AssetGenImage('assets/merge_sort.webp');
   static const AssetGenImage quickSort =
       AssetGenImage('assets/quick_sort.webp');
   static const AssetGenImage searching = AssetGenImage('assets/searching.webp');
@@ -33,6 +35,7 @@ class Assets {
         bubbleSort,
         insertionSort,
         linearSearch,
+        mergeSort,
         quickSort,
         searching,
         selectionSort,

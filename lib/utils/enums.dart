@@ -13,6 +13,7 @@ enum SortType {
   insertion,
   selection,
   quick,
+  merge,
 }
 
 enum OrderType {

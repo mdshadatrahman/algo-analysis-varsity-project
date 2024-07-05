@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:search_alog_proj/functions/bubble_sort_alog.dart';
 import 'package:search_alog_proj/functions/insertion_sort_alog.dart';
+import 'package:search_alog_proj/functions/merge_sort_algo.dart';
 import 'package:search_alog_proj/functions/quick_sort_algo.dart';
 import 'package:search_alog_proj/functions/selection_sort_alog.dart';
 import 'package:search_alog_proj/models/sorted_result_model.dart';
@@ -73,6 +74,8 @@ class SortProvider extends ChangeNotifier {
       case SortType.quick:
         sortedResult = quickSort(numbers: numbers, isAscending: orderType == OrderType.ascending);
         break;
+      case SortType.merge:
+        sortedResult = mergeSort(numbers: numbers, isAscending: orderType == OrderType.ascending);
     }
   }
 }

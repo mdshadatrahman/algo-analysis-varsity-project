@@ -5,7 +5,7 @@ import 'package:search_alog_proj/providers/sort_provider.dart';
 import 'package:search_alog_proj/views/landing_view.dart';
 import 'package:window_manager/window_manager.dart';
 
-const double height = 700;
+const double height = 900;
 const double width = 700;
 
 Future<void> main() async {
