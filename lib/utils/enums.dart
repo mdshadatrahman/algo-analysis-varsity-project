@@ -14,6 +14,9 @@ enum SortType {
   selection,
   quick,
   merge,
+  counting,
+  radix,
+  heap,
 }
 
 enum OrderType {

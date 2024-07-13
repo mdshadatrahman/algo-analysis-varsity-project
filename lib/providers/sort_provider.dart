@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:search_alog_proj/functions/bubble_sort_alog.dart';
+import 'package:search_alog_proj/functions/counting_sort_algo.dart';
+import 'package:search_alog_proj/functions/heap_sort_algo.dart';
 import 'package:search_alog_proj/functions/insertion_sort_alog.dart';
 import 'package:search_alog_proj/functions/merge_sort_algo.dart';
 import 'package:search_alog_proj/functions/quick_sort_algo.dart';
+import 'package:search_alog_proj/functions/radix_sort_algo.dart';
 import 'package:search_alog_proj/functions/selection_sort_alog.dart';
 import 'package:search_alog_proj/models/sorted_result_model.dart';
 import 'package:search_alog_proj/utils/enums.dart';
@@ -76,6 +79,15 @@ class SortProvider extends ChangeNotifier {
         break;
       case SortType.merge:
         sortedResult = mergeSort(numbers: numbers, isAscending: orderType == OrderType.ascending);
+      case SortType.counting:
+        sortedResult = coutingSort(numbers: numbers);
+        break;
+      case SortType.radix:
+        sortedResult = radixSort(numbers: numbers);
+        break;
+      case SortType.heap:
+        sortedResult = heapSort(numbers: numbers);
+        break;
     }
   }
 }

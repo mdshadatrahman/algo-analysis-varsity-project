@@ -16,6 +16,11 @@ class Assets {
       AssetGenImage('assets/binary_search.webp');
   static const AssetGenImage bubbleSort =
       AssetGenImage('assets/bubble_sort.webp');
+  static const AssetGenImage countingSort =
+      AssetGenImage('assets/counting_sort.webp');
+  static const AssetGenImage graphTraversal =
+      AssetGenImage('assets/graph_traversal.webp');
+  static const AssetGenImage heapSort = AssetGenImage('assets/heap_sort.webp');
   static const AssetGenImage insertionSort =
       AssetGenImage('assets/insertion_sort.webp');
   static const AssetGenImage linearSearch =
@@ -24,6 +29,7 @@ class Assets {
       AssetGenImage('assets/merge_sort.webp');
   static const AssetGenImage quickSort =
       AssetGenImage('assets/quick_sort.webp');
+  static const AssetGenImage radix = AssetGenImage('assets/radix.webp');
   static const AssetGenImage searching = AssetGenImage('assets/searching.webp');
   static const AssetGenImage selectionSort =
       AssetGenImage('assets/selection_sort.webp');
@@ -33,10 +39,14 @@ class Assets {
   static List<AssetGenImage> get values => [
         binarySearch,
         bubbleSort,
+        countingSort,
+        graphTraversal,
+        heapSort,
         insertionSort,
         linearSearch,
         mergeSort,
         quickSort,
+        radix,
         searching,
         selectionSort,
         sorting

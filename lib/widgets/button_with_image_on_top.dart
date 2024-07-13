@@ -17,8 +17,8 @@ class ButtonWithImageOnTop extends StatelessWidget {
     return Column(
       children: [
         Container(
-          height: 150,
-          width: 150,
+          height: 110,
+          width: 110,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             image: DecorationImage(
@@ -29,7 +29,10 @@ class ButtonWithImageOnTop extends StatelessWidget {
         const SizedBox(height: 10),
         CupertinoButton.filled(
           onPressed: onPressed,
-          child: Text(buttonText),
+          child: Text(
+            buttonText,
+            style: const TextStyle(fontSize: 14),
+          ),
         ),
       ],
     );
